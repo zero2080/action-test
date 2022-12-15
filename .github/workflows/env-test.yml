@@ -1,0 +1,18 @@
+name: 🤖 Action-Env-Test
+
+on:
+  push:
+    branches:
+      - main # github action trigger branches
+  workflow_dispatch: # push 이벤트 외, 수동으로 실행하는 것도 가능하도록 만드는 옵션
+
+jobs:
+   build:
+    runs-on: ubuntu-latest # 해당 github actions 스크립트가 작동할 OS 환경 지정
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2 # 프로젝트 코드 checkout
+      
+      - name: print
+        run: echo ${github}
