@@ -11,8 +11,8 @@ jobs:
     runs-on: ubuntu-latest # 해당 github actions 스크립트가 작동할 OS 환경 지정
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2 # 프로젝트 코드 checkout
-      
-      - name: print
-        run: echo ${{github.base_ref}}
+      - name: Output GitHub Context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: |
+          echo "GitHub context: $GITHUB_CONTEXT"
